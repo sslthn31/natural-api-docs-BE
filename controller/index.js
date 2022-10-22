@@ -100,20 +100,19 @@ export const jaroWinklerStringDistance = async(req, res) => {
     }
 }
 
-// export const levenshteinStringDistance = async(req, res) => {
-//     try {
-//     const paramOne = await req.params.paramFirst;
-//     const paramTwo = await req.params.paramTwo;
-//     const levenshetein = natural.LevenshteinDistance(paramOne, paramTwo);
-
-//     res.status(200).json({
-//         message: 'Success',
-//         data: levenshetein
-//     })
-//     } catch (error) {
-//     console.log(error)    
-//     }
-// }
+export const levenshteinStringDistance = async(req, res) => {
+    try {
+    const paramOne = req.params.paramFirst;
+    const paramTwo = req.params.paramSecond;
+    const levenshetein = natural.LevenshteinDistance(paramOne, paramTwo);
+    res.status(200).json({
+        message: 'Success',
+        data: levenshetein
+    })
+    } catch (error) {
+    console.log(error)    
+    }
+}
 
 export const diceCoefficientStringDistance = async(req, res) => {
     try {
