@@ -45,8 +45,8 @@ res.status(200).json({
 export const nounInflectorsPlural = async(req, res) => {
 try {
 const paramOne = await req.params.paramFirst;
-const Inflectors = new natural.NounInflectors();
-const pluralrized = Inflectors.pluralrize(paramOne);
+const Inflectors = new natural.NounInflector();
+const pluralrized = Inflectors.pluralize(paramOne);
 
 res.status(200).json({
    message: "Success",
@@ -60,7 +60,7 @@ res.status(200).json({
 export const nounInflectorSingular = async(req, res) => {
 try {
 const paramOne = await req.params.paramFirst;
-const Inflectors = new natural.NounInflectors();
+const Inflectors = new natural.NounInflector();
 const singularized = Inflectors.singularize(paramOne);
 
 res.status(200).json({
@@ -102,10 +102,9 @@ export const jaroWinklerStringDistance = async(req, res) => {
 
 export const levenshteinStringDistance = async(req, res) => {
     try {
-    const paramOne = await req.params.paramFirst;
-    const paramTwo = await req.params.paramTwo;
+    const paramOne = req.params.paramFirst;
+    const paramTwo = req.params.paramSecond;
     const levenshetein = natural.LevenshteinDistance(paramOne, paramTwo);
-
     res.status(200).json({
         message: 'Success',
         data: levenshetein
