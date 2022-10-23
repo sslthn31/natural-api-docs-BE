@@ -3,7 +3,7 @@ import express from 'express';
 import routes from './routes/index.js';
 
 const app = express();
-const port = 5555 || process.env.PORT;
+const port = process.env.PORT || 5000;
 
 
 // app.get('/', (req, res) => {
